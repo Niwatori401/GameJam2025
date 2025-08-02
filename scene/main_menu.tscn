@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bysd76qkc3elo"]
+
+[ext_resource type="PackedScene" uid="uid://rohpulln3rbw" path="res://scene/destructible_scene.tscn" id="1_hxu56"]
+[ext_resource type="Script" uid="uid://1x6alg3gq2ft" path="res://script/main_menu.gd" id="2_2fwvj"]
+[ext_resource type="PackedScene" uid="uid://cmi6htlegf1nm" path="res://scene/UI/sound_button.tscn" id="3_2fwvj"]
+
+[node name="MainMenu" instance=ExtResource("1_hxu56")]
+script = ExtResource("2_2fwvj")
+
+[node name="UIMain" type="Control" parent="." index="0"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="UIMain" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.368627, 0.329412, 0.517647, 1)
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="UIMain" index="1"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 564.0
+offset_right = 575.0
+offset_bottom = 884.0
+
+[node name="StartGameButton" parent="UIMain/MainMenuButtons" index="0" instance=ExtResource("3_2fwvj")]
+layout_mode = 2
+text = "Start Game"
+
+[node name="OptionsButton2" parent="UIMain/MainMenuButtons" index="1" instance=ExtResource("3_2fwvj")]
+layout_mode = 2
+text = "Options"
+
+[node name="GalleryButton3" parent="UIMain/MainMenuButtons" index="2" instance=ExtResource("3_2fwvj")]
+layout_mode = 2
+text = "Gallery"
+
+[node name="ExitGameButton4" parent="UIMain/MainMenuButtons" index="3" instance=ExtResource("3_2fwvj")]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Title" type="RichTextLabel" parent="UIMain" index="2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 100.0
+offset_right = 500.0
+offset_bottom = 400.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Game Jam 2025[/center]"
+horizontal_alignment = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bfn80i1hwtcso"
+path="res://.godot/imported/TUBE OGG.ogg-272a16cea677673a3772e08694afadfc.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/sound/ButtonSounds/TUBE OGG.ogg"
+dest_files=["res://.godot/imported/TUBE OGG.ogg-272a16cea677673a3772e08694afadfc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

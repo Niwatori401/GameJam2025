@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://wof1djrfun"]
+
+[ext_resource type="PackedScene" uid="uid://rohpulln3rbw" path="res://scene/destructible_scene.tscn" id="1_qruk5"]
+[ext_resource type="Script" uid="uid://kyfk152ktl4b" path="res://script/startup_splash_screen.gd" id="2_yha2v"]
+[ext_resource type="Texture2D" uid="uid://pwgruoayknoh" path="res://asset/background/credit_splash.png" id="3_cuieb"]
+
+[node name="StartupSplashScreen" instance=ExtResource("1_qruk5")]
+script = ExtResource("2_yha2v")
+
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+modulate = Color(0, 0.47451, 1, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_cuieb")

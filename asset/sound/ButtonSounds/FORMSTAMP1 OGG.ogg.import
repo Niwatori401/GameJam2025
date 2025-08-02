@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cgcafpuo1ybwx"
+path="res://.godot/imported/FORMSTAMP1 OGG.ogg-ff06e746cd5fff1be075d4fded3af2c8.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/sound/ButtonSounds/FORMSTAMP1 OGG.ogg"
+dest_files=["res://.godot/imported/FORMSTAMP1 OGG.ogg-ff06e746cd5fff1be075d4fded3af2c8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
