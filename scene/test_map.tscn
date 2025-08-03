@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyv0o0gmemuwn"]
+
+[ext_resource type="PackedScene" uid="uid://hwk447kh10vm" path="res://scene/scrolling_background.tscn" id="1_mbcbn"]
+[ext_resource type="PackedScene" uid="uid://cqccj4wrxn7uc" path="res://scene/player_car.tscn" id="2_g2q8l"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("1_mbcbn")]
+
+[node name="PlayerCar" parent="." instance=ExtResource("2_g2q8l")]
+position = Vector2(249, 829)

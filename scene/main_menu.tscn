@@ -24,16 +24,17 @@ color = Color(0.368627, 0.329412, 0.517647, 1)
 
 [node name="MainMenuButtons" type="VBoxContainer" parent="UIMain" index="1"]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 564.0
-offset_right = 575.0
-offset_bottom = 884.0
+offset_left = 697.0
+offset_top = 421.0
+offset_right = 1197.0
+offset_bottom = 741.0
 
 [node name="StartGameButton" parent="UIMain/MainMenuButtons" index="0" instance=ExtResource("3_2fwvj")]
 layout_mode = 2
 text = "Start Game"
 
 [node name="OptionsButton2" parent="UIMain/MainMenuButtons" index="1" instance=ExtResource("3_2fwvj")]
+visible = false
 layout_mode = 2
 text = "Options"
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqccj4wrxn7uc"]
+
+[ext_resource type="Script" uid="uid://bvr76nxie7mqk" path="res://script/player_car.gd" id="1_etaoq"]
+[ext_resource type="Texture2D" uid="uid://d05lji8nq76xo" path="res://asset/player_car.png" id="2_3juoo"]
+
+[node name="PlayerCar" type="Node2D"]
+script = ExtResource("1_etaoq")
+
+[node name="CarSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3juoo")
+
+[node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(-58, -12)

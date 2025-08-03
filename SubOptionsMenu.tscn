@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6yqlav84b8cw"]
+
+[ext_resource type="FontFile" uid="uid://ci4yykne7hnhx" path="res://asset/font/roboto-condensed/RobotoCondensed-Bold.ttf" id="1_siomy"]
+
+[node name="UIMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -1922.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.627451, 0.419608, 1)
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 398.0
+offset_top = 26.0
+offset_right = 1478.0
+offset_bottom = 185.0
+theme_override_fonts/normal_font = ExtResource("1_siomy")
+theme_override_font_sizes/normal_font_size = 120
+text = "Options"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Settings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 554.0
+offset_top = 365.0
+offset_right = 1323.0
+offset_bottom = 1028.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoSettings" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="VideoResolution" type="RichTextLabel" parent="Settings/VideoSettings"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Video Resolution[/center]"
+fit_content = true
+
+[node name="VideoResolutionDropdown" type="OptionButton" parent="Settings/VideoSettings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Fullscreen"
+
+[node name="HSeparator" type="HSeparator" parent="Settings"]
+layout_mode = 2
+
+[node name="VolumeSettings" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="VolumeTitle" type="RichTextLabel" parent="Settings/VolumeSettings"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Music Volume[/center]"
+fit_content = true
+
+[node name="HSlider" type="HSlider" parent="Settings/VolumeSettings"]
+layout_mode = 2
+
+[node name="SFX Volume" type="RichTextLabel" parent="Settings/VolumeSettings"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]SFX Volume[/center]"
+fit_content = true
+
+[node name="HSlider2" type="HSlider" parent="Settings/VolumeSettings"]
+layout_mode = 2
