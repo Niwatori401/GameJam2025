@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsriw4kna2pf4"]
+
+[ext_resource type="Texture2D" uid="uid://docn3aj3q8w3g" path="res://asset/enemy_projectile_1.png" id="1_g1oax"]
+[ext_resource type="Script" uid="uid://cism1mlieqdnv" path="res://script/enemy_bullet_1.gd" id="1_phj22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phj22"]
+radius = 8.0
+
+[node name="EnemyBullet_1" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_phj22")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g1oax")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+shape = SubResource("CircleShape2D_phj22")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

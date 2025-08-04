@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJam_2025"
-run/main_scene="uid://hwk447kh10vm"
+run/main_scene="uid://cyv0o0gmemuwn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -30,6 +30,10 @@ Strings="*res://script/static/strings.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/vsync/vsync_mode=0
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -84,3 +88,5 @@ fire_weapon={
 2d_physics/layer_1="MovementBorder"
 2d_physics/layer_2="PlayerBullet"
 2d_physics/layer_3="EnemyBullet"
+2d_physics/layer_4="PlayerVehicle"
+2d_physics/layer_5="EnemyVehicle"

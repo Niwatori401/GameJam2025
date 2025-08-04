@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://df8oapdngxpoe"]
+
+[ext_resource type="Texture2D" uid="uid://bqao30p2qv8tn" path="res://asset/enemy_car.png" id="1_dollp"]
+[ext_resource type="Script" uid="uid://eebqwynrpduc" path="res://script/enemy_car_1.gd" id="1_r7cup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7cup"]
+size = Vector2(224, 132)
+
+[node name="EnemyCar_1" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 3
+motion_mode = 1
+slide_on_ceiling = false
+platform_floor_layers = 4294901760
+platform_wall_layers = 1
+script = ExtResource("1_r7cup")
+
+[node name="CarSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.503418, 0.503418)
+texture = ExtResource("1_dollp")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 110)
+shape = SubResource("RectangleShape2D_r7cup")
+
+[node name="BulletSpawnPoint" type="Node2D" parent="."]
+position = Vector2(64, 99)

@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyv0o0gmemuwn"]
+[gd_scene load_steps=8 format=3 uid="uid://cyv0o0gmemuwn"]
 
 [ext_resource type="PackedScene" uid="uid://hwk447kh10vm" path="res://scene/scrolling_background.tscn" id="1_mbcbn"]
+[ext_resource type="Script" uid="uid://cktmuxwxkdgiw" path="res://script/test_map.gd" id="1_qxf1o"]
+[ext_resource type="PackedScene" uid="uid://eqfdvb7k1rjv" path="res://scene/enemy_manager.tscn" id="2_1tyyu"]
 [ext_resource type="PackedScene" uid="uid://cqccj4wrxn7uc" path="res://scene/player_car.tscn" id="2_g2q8l"]
+[ext_resource type="PackedScene" uid="uid://df8oapdngxpoe" path="res://scene/enemy_car_1.tscn" id="3_g2q8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbcbn"]
 size = Vector2(44, 1132)
@@ -10,16 +13,20 @@ size = Vector2(44, 1132)
 size = Vector2(1828, 20)
 
 [node name="TestMap" type="Node2D"]
+script = ExtResource("1_qxf1o")
+
+[node name="EnemyManager" parent="." instance=ExtResource("2_1tyyu")]
 
 [node name="ScrollingBackground" parent="." instance=ExtResource("1_mbcbn")]
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_g2q8l")]
-position = Vector2(249, 829)
+position = Vector2(1171, 602)
 
 [node name="MovementBorder" type="Node2D" parent="."]
 
 [node name="BorderWall_1" type="StaticBody2D" parent="MovementBorder"]
 position = Vector2(1869, 17)
+collision_mask = 25
 
 [node name="Hitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_1"]
 position = Vector2(-4, 512)
@@ -27,6 +34,7 @@ shape = SubResource("RectangleShape2D_mbcbn")
 
 [node name="BorderWall_2" type="StaticBody2D" parent="MovementBorder"]
 position = Vector2(58, 41)
+collision_mask = 25
 
 [node name="Hitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_2"]
 position = Vector2(-4, 512)
@@ -34,14 +42,19 @@ shape = SubResource("RectangleShape2D_mbcbn")
 
 [node name="BorderWall_3" type="StaticBody2D" parent="MovementBorder"]
 position = Vector2(1088, -130)
+collision_mask = 25
 
 [node name="UpperBorderHitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_3"]
-position = Vector2(-126, 596)
+position = Vector2(-113, 381)
 shape = SubResource("RectangleShape2D_g2q8l")
 
 [node name="BorderWall_4" type="StaticBody2D" parent="MovementBorder"]
 position = Vector2(1088, -130)
+collision_mask = 25
 
 [node name="LowerBorderHitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_4"]
 position = Vector2(-123, 1153)
 shape = SubResource("RectangleShape2D_g2q8l")
+
+[node name="EnemyCar_1" parent="." instance=ExtResource("3_g2q8l")]
+position = Vector2(512, 445)

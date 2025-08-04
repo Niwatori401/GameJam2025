@@ -51,6 +51,11 @@ static func make_config_and_save_files_if_needed():
 		config_file.save(Strings.USER_CONFIG_FILE);
 
 
+func teleport_characterbody2d(object: CharacterBody2D, position: Vector2) -> void:
+	var id = object.get_rid()
+	object.global_transform = Transform2D.IDENTITY.translated(position)
+	PhysicsServer2D.body_set_state(id, PhysicsServer2D.BODY_STATE_TRANSFORM, Transform2D.IDENTITY.translated(position))
+
 # from https://www.chrismccole.com/blog/how-to-teleport-an-object-with-physics-in-godot
 func teleport(object: RigidBody2D, position: Vector2, velocity: Vector2 = Vector2.ZERO, angularVelocity:float = 0.0, isSleeping:bool = false) -> void:
 	var id = object.get_rid()

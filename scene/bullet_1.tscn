@@ -7,10 +7,12 @@
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 16
 gravity_scale = 0.0
 can_sleep = false
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_tc0d1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -19,3 +21,5 @@ texture = ExtResource("1_cutrb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.575, 1.575)
 shape = SubResource("CircleShape2D_tc0d1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
