@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyv0o0gmemuwn"]
+[gd_scene load_steps=5 format=3 uid="uid://cyv0o0gmemuwn"]
 
 [ext_resource type="PackedScene" uid="uid://hwk447kh10vm" path="res://scene/scrolling_background.tscn" id="1_mbcbn"]
 [ext_resource type="PackedScene" uid="uid://cqccj4wrxn7uc" path="res://scene/player_car.tscn" id="2_g2q8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbcbn"]
+size = Vector2(44, 1132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2q8l"]
+size = Vector2(1828, 20)
 
 [node name="TestMap" type="Node2D"]
 
@@ -9,3 +15,33 @@
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_g2q8l")]
 position = Vector2(249, 829)
+
+[node name="MovementBorder" type="Node2D" parent="."]
+
+[node name="BorderWall_1" type="StaticBody2D" parent="MovementBorder"]
+position = Vector2(1869, 17)
+
+[node name="Hitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_1"]
+position = Vector2(-4, 512)
+shape = SubResource("RectangleShape2D_mbcbn")
+
+[node name="BorderWall_2" type="StaticBody2D" parent="MovementBorder"]
+position = Vector2(58, 41)
+
+[node name="Hitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_2"]
+position = Vector2(-4, 512)
+shape = SubResource("RectangleShape2D_mbcbn")
+
+[node name="BorderWall_3" type="StaticBody2D" parent="MovementBorder"]
+position = Vector2(1088, -130)
+
+[node name="UpperBorderHitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_3"]
+position = Vector2(-126, 596)
+shape = SubResource("RectangleShape2D_g2q8l")
+
+[node name="BorderWall_4" type="StaticBody2D" parent="MovementBorder"]
+position = Vector2(1088, -130)
+
+[node name="LowerBorderHitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_4"]
+position = Vector2(-123, 1153)
+shape = SubResource("RectangleShape2D_g2q8l")

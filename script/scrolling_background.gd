@@ -4,7 +4,7 @@ const SCREEN_WIDTH : float = 1920;
 var starting_x = SCREEN_WIDTH * 2.5; # Screen width * (number of screen widths  / 2)
 var max_x = -1 * (starting_x - 1920);
 
-var scroll_rate_per_second : float = 2000;
+var scroll_rate_per_second : float = 1000;
 
 func _ready() -> void:
 	$BackgroundImage.position.x = starting_x;

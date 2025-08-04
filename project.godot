@@ -79,7 +79,8 @@ fire_weapon={
 ]
 }
 
-[rendering]
+[layer_names]
 
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
+2d_physics/layer_1="MovementBorder"
+2d_physics/layer_2="PlayerBullet"
+2d_physics/layer_3="EnemyBullet"
