@@ -104,8 +104,8 @@ func shoot() -> void:
 	# This could cause issues if there is not parent, but in practice that shouldn't happen.
 	# Adding as child of car causes bullets to "vibrate"
 	get_parent().add_child(bullet_instance);
-	const DEPSAWN_SECONDS = 5.0;
-	get_tree().create_timer(DEPSAWN_SECONDS).timeout.connect(func(): if bullet_instance != null: bullet_instance.queue_free())
+	const DESPAWN_SECONDS = 5.0;
+	get_tree().create_timer(DESPAWN_SECONDS).timeout.connect(Utility.despawn_instance.bind(bullet_instance))
 	var velocity_vector = (get_player_direction_vector()).normalized() * BULLET_SPEED;
 	Utility.teleport(bullet_instance, $BulletSpawnPoint.global_position, -velocity_vector);
 

@@ -33,7 +33,12 @@ static func instantiate_scene(parent : Node, new_scene_string : String):
 	return res;
 	
 	
-
+# Capturing a vairable that may be freed elsewhere in a lambda causes an error to be created, even though there are no adverse effects.
+# https://github.com/godotengine/godot/issues/85947
+# Doing get_tree().create_timer(TIME).timeout.connect(despawn_instance.bind(instance)) gets around this bug.
+static func despawn_instance(instance):
+	if is_instance_valid(instance):
+		instance.queue_free();
 
 static func make_config_and_save_files_if_needed():
 	config_file = ConfigFile.new();
