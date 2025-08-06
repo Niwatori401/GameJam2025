@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b20phwxsklg3u"
-path="res://.godot/imported/player_car_destroyed.png-8368766b451c569b9efeee4414df5934.ctex"
+uid="uid://d05lji8nq76xo"
+path="res://.godot/imported/player_car.png-44cbb74446817a0fa8becf7ff32aba0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/player_car_destroyed.png"
-dest_files=["res://.godot/imported/player_car_destroyed.png-8368766b451c569b9efeee4414df5934.ctex"]
+source_file="res://asset/texture/player_car/FullHealth/player_car.png"
+dest_files=["res://.godot/imported/player_car.png-44cbb74446817a0fa8becf7ff32aba0b.ctex"]
 
 [params]
 

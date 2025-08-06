@@ -21,7 +21,6 @@ buses/default_bus_layout="uid://d06vjia4ajkdu"
 
 [autoload]
 
-Utility="*res://script/static/utility.gd"
 SignalBus="*res://script/static/signal_bus.gd"
 Strings="*res://script/static/strings.gd"
 

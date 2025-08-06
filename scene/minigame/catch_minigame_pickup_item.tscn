@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ij6047hjiqv2"]
 
-[ext_resource type="Script" uid="uid://t5o2x3xbsn57" path="res://scene/minigame/catch_minigame_pickup_item.gd" id="1_0ec0j"]
+[ext_resource type="Script" uid="uid://t5o2x3xbsn57" path="res://script/minigame/catch_minigame_pickup_item.gd" id="1_0ec0j"]
 [ext_resource type="Texture2D" uid="uid://ypiuu150kfjg" path="res://asset/texture/minigame/CatchFood/item_1.png" id="1_myl1v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ec0j"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d05lji8nq76xo"
-path="res://.godot/imported/player_car.png-c8725af6af44c6d2e150f2a7bf9bfb1d.ctex"
+uid="uid://bk1rxbyalch47"
+path="res://.godot/imported/player_car_turn_up.png-3737a558b7911d872d5cc1dc61d5718d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/player_car.png"
-dest_files=["res://.godot/imported/player_car.png-c8725af6af44c6d2e150f2a7bf9bfb1d.ctex"]
+source_file="res://asset/texture/player_car/FullHealth/player_car_turn_up.png"
+dest_files=["res://.godot/imported/player_car_turn_up.png-3737a558b7911d872d5cc1dc61d5718d.ctex"]
 
 [params]
 

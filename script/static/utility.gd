@@ -1,4 +1,4 @@
-extends Node
+class_name Utility extends Node
 
 static var save_file : ConfigFile = ConfigFile.new();
 static var config_file : ConfigFile = ConfigFile.new();
@@ -14,7 +14,7 @@ static func _static_init() -> void:
 	#load_inventory_from_file();
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("kill_game"):
 		get_tree().quit();
 
@@ -61,6 +61,10 @@ static func get_aim_direction_from_inputs() -> Vector2:
 	return aim;
 
 
+static func despawn_object_in_x_seconds(object, seconds : float) -> void:
+	object.get_tree().create_timer(seconds).timeout.connect(despawn_instance.bind(object));
+	
+
 
 # Capturing a vairable that may be freed elsewhere in a lambda causes an error to be created, even though there are no adverse effects.
 # https://github.com/godotengine/godot/issues/85947
@@ -85,13 +89,13 @@ static func make_config_and_save_files_if_needed():
 		config_file.save(Strings.USER_CONFIG_FILE);
 
 
-func teleport_characterbody2d(object: CharacterBody2D, position: Vector2) -> void:
+static func teleport_characterbody2d(object: CharacterBody2D, position: Vector2) -> void:
 	var id = object.get_rid()
 	object.global_transform = Transform2D.IDENTITY.translated(position)
 	PhysicsServer2D.body_set_state(id, PhysicsServer2D.BODY_STATE_TRANSFORM, Transform2D.IDENTITY.translated(position))
 
 # from https://www.chrismccole.com/blog/how-to-teleport-an-object-with-physics-in-godot
-func teleport(object: RigidBody2D, position: Vector2, velocity: Vector2 = Vector2.ZERO, angularVelocity:float = 0.0, isSleeping:bool = false) -> void:
+static func teleport(object: RigidBody2D, position: Vector2, velocity: Vector2 = Vector2.ZERO, angularVelocity:float = 0.0, isSleeping:bool = false) -> void:
 	var id = object.get_rid()
 	object.global_transform = Transform2D.IDENTITY.translated(position)
 	PhysicsServer2D.body_set_state(id, PhysicsServer2D.BODY_STATE_TRANSFORM, Transform2D.IDENTITY.translated(position))
@@ -103,7 +107,7 @@ func teleport(object: RigidBody2D, position: Vector2, velocity: Vector2 = Vector
 	object.sleeping = isSleeping
 	PhysicsServer2D.body_set_state(id, PhysicsServer2D.BODY_STATE_SLEEPING, isSleeping)
 
-func set_gravity(object: RigidBody2D, gravityScale:float) -> void:
+static func set_gravity(object: RigidBody2D, gravityScale:float) -> void:
 	var id = object.get_rid()
 	object.gravity_scale = gravityScale;
 	PhysicsServer2D.body_set_param(id, PhysicsServer2D.BODY_PARAM_GRAVITY_SCALE, gravityScale)

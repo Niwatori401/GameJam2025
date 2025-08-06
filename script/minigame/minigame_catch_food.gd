@@ -22,3 +22,4 @@ func launch_new_item():
 	var item_instance = LAUNCH_ITEM.instantiate();
 	add_child(item_instance);
 	Utility.teleport(item_instance, spawn_point, launch_vector);
+	Utility.despawn_object_in_x_seconds(item_instance, 10);

@@ -1,3 +1,78 @@
-[gd_scene format=3 uid="uid://bnc017ik6u42c"]
+[gd_scene load_steps=11 format=3 uid="uid://bnc017ik6u42c"]
+
+[ext_resource type="Script" uid="uid://bsoskhm0gvpk3" path="res://script/minigame/minigame_safe_opening.gd" id="1_e5264"]
+[ext_resource type="Texture2D" uid="uid://cu7g2vv4xx41m" path="res://asset/texture/minigame/SafeOpening/MrMouse_OpeningSafe.png" id="2_122ev"]
+[ext_resource type="Texture2D" uid="uid://b481imuhs5pe2" path="res://asset/texture/minigame/SafeOpening/safe/safe_fill_color.png" id="2_ojk7s"]
+[ext_resource type="Texture2D" uid="uid://c7vqelr7vp2sr" path="res://asset/texture/minigame/SafeOpening/safe/outer_ring_outline.png" id="3_tlh4k"]
+[ext_resource type="Texture2D" uid="uid://ca6il2cnq7slj" path="res://asset/texture/minigame/SafeOpening/MrMouse_LockpickingHand.png" id="3_yrttq"]
+[ext_resource type="Texture2D" uid="uid://cstomw3cltt2u" path="res://asset/texture/minigame/SafeOpening/safe/middle_ring_outline.png" id="4_ikxmx"]
+[ext_resource type="Texture2D" uid="uid://clygec8i6505y" path="res://asset/texture/minigame/SafeOpening/safe/inner_ring_outline.png" id="5_ly8oh"]
+[ext_resource type="Texture2D" uid="uid://wv2wlgy3msu5" path="res://asset/texture/minigame/SafeOpening/safe/minigame_2_dial_back.png" id="6_2j1ah"]
+[ext_resource type="Texture2D" uid="uid://3c0s6sl05ymo" path="res://asset/texture/minigame/SafeOpening/safe/minigame_2_dial_front.png" id="7_4he02"]
+[ext_resource type="AudioStream" uid="uid://cc3ikkiyhw006" path="res://asset/sound/minigame/SafeOpening/NormalTick.ogg" id="10_tlh4k"]
 
 [node name="Minigame_Safe_Opening" type="Node2D"]
+script = ExtResource("1_e5264")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.627451, 0.623529, 0.701961, 1)
+
+[node name="Safe" type="Node2D" parent="."]
+position = Vector2(913, 602)
+scale = Vector2(1.37966, 1.37966)
+
+[node name="Background" type="Sprite2D" parent="Safe"]
+texture = ExtResource("2_ojk7s")
+offset = Vector2(1250, -35)
+
+[node name="Rings" type="Node2D" parent="Safe"]
+
+[node name="Ring1" type="Sprite2D" parent="Safe/Rings"]
+texture = ExtResource("3_tlh4k")
+offset = Vector2(1250, -35)
+
+[node name="Ring2" type="Sprite2D" parent="Safe/Rings"]
+texture = ExtResource("4_ikxmx")
+offset = Vector2(1250, -35)
+
+[node name="Ring3" type="Sprite2D" parent="Safe/Rings"]
+texture = ExtResource("5_ly8oh")
+offset = Vector2(1250, -35)
+
+[node name="Knob" type="Node2D" parent="Safe"]
+
+[node name="KnobBottom" type="Sprite2D" parent="Safe/Knob"]
+texture = ExtResource("6_2j1ah")
+offset = Vector2(1250, -35)
+
+[node name="KnobTop" type="Sprite2D" parent="."]
+position = Vector2(913, 602)
+scale = Vector2(1.37966, 1.37966)
+texture = ExtResource("7_4he02")
+offset = Vector2(1250, -35)
+
+[node name="MrMouse" type="Node2D" parent="."]
+position = Vector2(-2605, -473)
+scale = Vector2(1.43533, 1.43533)
+
+[node name="MrMouseHead" type="Sprite2D" parent="MrMouse"]
+position = Vector2(2457, 732)
+texture = ExtResource("2_122ev")
+offset = Vector2(1250, -35)
+
+[node name="MrMouseHand" type="Sprite2D" parent="MrMouse"]
+position = Vector2(2457, 732)
+rotation = 0.528835
+texture = ExtResource("3_yrttq")
+offset = Vector2(1250, -35)
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tlh4k")
+bus = &"SFX"
