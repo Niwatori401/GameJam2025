@@ -32,7 +32,36 @@ static func instantiate_scene(parent : Node, new_scene_string : String):
 	parent.add_child(res);
 	return res;
 	
+
+static func get_move_direction_from_inputs() -> Vector2:
+	var movement = Vector2();
+	if Input.is_action_pressed("up"):
+		movement.y += -1;
+	if Input.is_action_pressed("down"):
+		movement.y += 1;
+	if Input.is_action_pressed("right"):
+		movement.x += 1;
+	if Input.is_action_pressed("left"):
+		movement.x += -1;
 	
+	return movement;
+	
+
+static func get_aim_direction_from_inputs() -> Vector2:
+	var aim = Vector2();
+	if Input.is_action_pressed("aim_up"):
+		aim.y += -1;
+	if Input.is_action_pressed("aim_down"):
+		aim.y += 1;
+	if Input.is_action_pressed("aim_right"):
+		aim.x += 1;
+	if Input.is_action_pressed("aim_left"):
+		aim.x += -1;
+	
+	return aim;
+
+
+
 # Capturing a vairable that may be freed elsewhere in a lambda causes an error to be created, even though there are no adverse effects.
 # https://github.com/godotengine/godot/issues/85947
 # Doing get_tree().create_timer(TIME).timeout.connect(despawn_instance.bind(instance)) gets around this bug.

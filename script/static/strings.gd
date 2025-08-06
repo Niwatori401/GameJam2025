@@ -6,7 +6,7 @@ const USER_CONFIG_FILE := "user://config.cfg";
 
 
 const PLAYER_GROUP = "player"
-
+const ITEM_PICKUP_RECEIVER_GROUP = "item_pickup_receiver_group";
 
 
 # Scene Strings

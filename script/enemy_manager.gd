@@ -33,7 +33,6 @@ func _process(delta):
 		spawn_groups.pop_front();
 	
 func spawn_next_enemies():
-	print("spawning enemies");
 	for enemy in spawn_groups[0]:
 		spawn_single_enemy(enemy);
 	
@@ -44,7 +43,6 @@ func deal_damage_to_enemy(damage, enemy):
 
 func spawn_single_enemy(enemy) -> void:
 	var enemy_instance = enemy.instantiate();
-	print("Spawning %s" % [enemy_instance]);
 	enemy_instance.visible = false;
 	get_parent().add_child(enemy_instance);
 	# meant for rigid bodies, but might work for character bodies? randf_range(100, 500)

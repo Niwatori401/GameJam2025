@@ -45,7 +45,7 @@ position = Vector2(1088, -130)
 collision_mask = 25
 
 [node name="UpperBorderHitbox" type="CollisionShape2D" parent="MovementBorder/BorderWall_3"]
-position = Vector2(-113, 381)
+position = Vector2(-127, 538)
 shape = SubResource("RectangleShape2D_g2q8l")
 
 [node name="BorderWall_4" type="StaticBody2D" parent="MovementBorder"]

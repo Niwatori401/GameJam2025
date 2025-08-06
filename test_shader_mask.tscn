@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpempttx5b4n7"]
+
+[ext_resource type="Material" uid="uid://b76g60rkhm2x7" path="res://test_mask_material.tres" id="1_mu87k"]
+[ext_resource type="Texture2D" uid="uid://da4um8j6ailot" path="res://asset/cheese_projectile.png" id="2_3krn6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_mu87k")
+texture = ExtResource("2_3krn6")

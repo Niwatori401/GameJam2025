@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b76g60rkhm2x7"]
+
+[ext_resource type="Shader" uid="uid://ee1fipji0iha" path="res://erase_layer_mask.gdshader" id="1_bhf2s"]
+[ext_resource type="Texture2D" uid="uid://bf4b0xoeyxmr8" path="res://asset/mask_test.png" id="2_4ao00"]
+
+[resource]
+shader = ExtResource("1_bhf2s")
+shader_parameter/mask_texture = ExtResource("2_4ao00")

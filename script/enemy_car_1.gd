@@ -5,7 +5,7 @@ var should_fall_behind : bool = false;
 
 
 var speed = 1000;
-var vertical_damping = 0.5;
+var vertical_damping = 0.3;
 
 const MAX_HEALTH : float = 20;
 var current_health : float = MAX_HEALTH;

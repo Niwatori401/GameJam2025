@@ -29,11 +29,13 @@ Strings="*res://script/static/strings.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
 [global_group]
 
 player=""
+item_pickup_receiver_group=""
 
 [input]
 
@@ -106,3 +108,4 @@ aim_down={
 2d_physics/layer_3="EnemyBullet"
 2d_physics/layer_4="PlayerVehicle"
 2d_physics/layer_5="EnemyVehicle"
+2d_physics/layer_6="ItemPickup"

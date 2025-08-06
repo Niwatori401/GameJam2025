@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqibqx70gu21k"]
+
+[ext_resource type="Script" uid="uid://c0j3jsts6hp1m" path="res://script/minigame/minigame_catch_food.gd" id="1_54064"]
+[ext_resource type="Texture2D" uid="uid://so3d33m35xl" path="res://asset/texture/minigame/CatchFood/background.png" id="1_asq00"]
+[ext_resource type="Texture2D" uid="uid://d1erdt50jt03t" path="res://asset/texture/minigame/CatchFood/ms_mouse.png" id="2_54064"]
+[ext_resource type="Texture2D" uid="uid://cdhskh8yddbkn" path="res://asset/texture/minigame/CatchFood/mr_mouse.png" id="3_3gdru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag4x2"]
+size = Vector2(20.9898, 206.149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asq00"]
+size = Vector2(97.8272, 21.552)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54064"]
+radius = 56.5415
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54064"]
+size = Vector2(37, 1088)
+
+[node name="Minigame_CatchFood" type="Node2D"]
+script = ExtResource("1_54064")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_asq00")
+
+[node name="MsMouse" type="Sprite2D" parent="."]
+position = Vector2(362, 366)
+scale = Vector2(1.34375, 1.34375)
+texture = ExtResource("2_54064")
+
+[node name="ItemSpawnpoint" type="Node2D" parent="MsMouse"]
+position = Vector2(41.6744, -93.7674)
+
+[node name="MrMouse" type="Sprite2D" parent="."]
+position = Vector2(348, 762)
+scale = Vector2(1.33398, 1.33398)
+texture = ExtResource("3_3gdru")
+
+[node name="BagCollisionHitbox" type="Node2D" parent="MrMouse"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MrMouse/BagCollisionHitbox"]
+rotation = -0.31765
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/BagCollisionHitbox/StaticBody2D"]
+position = Vector2(-179.72, -65.402)
+shape = SubResource("RectangleShape2D_ag4x2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="MrMouse/BagCollisionHitbox"]
+rotation = 0.31765
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/BagCollisionHitbox/StaticBody2D2"]
+position = Vector2(-50.9751, 6.74671)
+shape = SubResource("RectangleShape2D_ag4x2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="MrMouse/BagCollisionHitbox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/BagCollisionHitbox/StaticBody2D3"]
+position = Vector2(-115.256, 80.2108)
+shape = SubResource("RectangleShape2D_asq00")
+
+[node name="ItemPickupHitbox" type="StaticBody2D" parent="MrMouse" groups=["item_pickup_receiver_group"]]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/ItemPickupHitbox"]
+position = Vector2(-123.69, 17.9912)
+shape = SubResource("CircleShape2D_54064")
+debug_color = Color(0.925707, 0.19385, 0.484782, 0.42)
+
+[node name="SideWallHitboxes" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SideWallHitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWallHitboxes/StaticBody2D"]
+position = Vector2(8.5, 534)
+shape = SubResource("RectangleShape2D_54064")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="SideWallHitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWallHitboxes/StaticBody2D2"]
+position = Vector2(1914, 540)
+shape = SubResource("RectangleShape2D_54064")

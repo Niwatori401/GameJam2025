@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ij6047hjiqv2"]
+
+[ext_resource type="Script" uid="uid://t5o2x3xbsn57" path="res://scene/minigame/catch_minigame_pickup_item.gd" id="1_0ec0j"]
+[ext_resource type="Texture2D" uid="uid://ypiuu150kfjg" path="res://asset/texture/minigame/CatchFood/item_1.png" id="1_myl1v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ec0j"]
+radius = 28.6356
+
+[node name="CatchMinigamePickupItem" type="RigidBody2D"]
+collision_layer = 33
+collision_mask = 33
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_0ec0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0ec0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_myl1v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

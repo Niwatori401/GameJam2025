@@ -35,38 +35,12 @@ func _process(delta: float) -> void:
 	if is_dead:
 		return;
 	
-	var movement_direction = get_move_direction_from_inputs()
+	var movement_direction = Utility.get_move_direction_from_inputs()
 	var velocity_target = Vector2(delta * speed * movement_direction.x, delta * speed * movement_direction.y * vertical_damping);
 	move_and_collide(velocity_target);
 	
-	fire_bullets_if_firing(get_aim_direction_from_inputs());
+	fire_bullets_if_firing(Utility.get_aim_direction_from_inputs());
 
-func get_move_direction_from_inputs() -> Vector2:
-	var movement = Vector2();
-	if Input.is_action_pressed("up"):
-		movement.y += -1;
-	if Input.is_action_pressed("down"):
-		movement.y += 1;
-	if Input.is_action_pressed("right"):
-		movement.x += 1;
-	if Input.is_action_pressed("left"):
-		movement.x += -1;
-	
-	return movement;
-	
-
-func get_aim_direction_from_inputs() -> Vector2:
-	var aim = Vector2();
-	if Input.is_action_pressed("aim_up"):
-		aim.y += -1;
-	if Input.is_action_pressed("aim_down"):
-		aim.y += 1;
-	if Input.is_action_pressed("aim_right"):
-		aim.x += 1;
-	if Input.is_action_pressed("aim_left"):
-		aim.x += -1;
-	
-	return aim;
 
 func fire_bullets_if_firing(aim_direction : Vector2):
 	if !Input.is_action_just_pressed("fire_weapon"):
