@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://fjjiys20cir1"]
+
+[ext_resource type="Texture2D" uid="uid://cooaepqg62r4y" path="res://asset/gBot_pieces.png" id="1_nmnay"]
+
+[node name="PaperDollTest" type="Node2D"]
+
+[node name="polygons" type="Node2D" parent="."]
+
+[node name="upper_arm" type="Polygon2D" parent="polygons"]
+texture = ExtResource("1_nmnay")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(32.0306, 26.2658, 33.1306, 98.8659, 28.7306, 173.666, 39.7306, 191.266, 91.4306, 185.766, 115.631, 128.566, 123.331, 71.3658, 136.531, 44.9658)
+uv = PackedVector2Array(32.0306, 26.2658, 33.1306, 98.8659, 28.7306, 173.666, 39.7306, 191.266, 91.4306, 185.766, 115.631, 128.566, 123.331, 71.3658, 136.531, 44.9658)
+bones = ["upper_arm_bone", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "upper_arm_bone/lower_arm_bone", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="lower_arm" type="Polygon2D" parent="polygons"]
+texture = ExtResource("1_nmnay")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(33.8599, 186.235, 24.3442, 256.922, 33.8599, 314.016, 61.0474, 367.032, 119.501, 356.157, 139.891, 312.657, 114.063, 262.36, 105.907, 187.594, 83.9253, 187.179)
+uv = PackedVector2Array(33.8599, 186.235, 24.3442, 256.922, 33.8599, 314.016, 61.0474, 367.032, 119.501, 356.157, 139.891, 312.657, 114.063, 262.36, 105.907, 187.594, 83.9253, 187.179)
+bones = ["upper_arm_bone", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "upper_arm_bone/lower_arm_bone", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="lower_arm_bone" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(148.272, 137.5)
+rotation = 0.785406
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 0, 95)
+auto_calculate_length_and_angle = false
+length = 156.72
+bone_angle = 82.443
+
+[node name="upper_arm_bone" type="Bone2D" parent="Skeleton2D/lower_arm_bone"]
+position = Vector2(67.1751, -67.1752)
+rotation = -2.35619
+rest = Transform2D(1, 0, 0, 1, 66, 90)
+auto_calculate_length_and_angle = false
+length = 70.664
+bone_angle = -296.794

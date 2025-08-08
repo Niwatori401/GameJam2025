@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bvr76nxie7mqk" path="res://script/player_car.gd" id="1_etaoq"]
 [ext_resource type="Texture2D" uid="uid://d05lji8nq76xo" path="res://asset/texture/player_car/FullHealth/player_car.png" id="2_3juoo"]
-[ext_resource type="Texture2D" uid="uid://da4um8j6ailot" path="res://asset/cheese_projectile.png" id="3_pf2ug"]
+[ext_resource type="Texture2D" uid="uid://4rs1lcoqh7yj" path="res://asset/yarn_projectile.png" id="3_pf2ug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf2ug"]
-size = Vector2(139, 130)
+size = Vector2(280, 128)
 
 [node name="PlayerCar" type="CharacterBody2D" groups=["player"]]
 collision_layer = 8
@@ -23,10 +23,13 @@ texture = ExtResource("2_3juoo")
 position = Vector2(-50, 16)
 
 [node name="WeaponSprite" type="Sprite2D" parent="."]
-position = Vector2(-51, 17)
-scale = Vector2(0.65625, 0.65625)
+position = Vector2(-60, 29)
+rotation = 2.87126
+scale = Vector2(0.328125, 0.328125)
 texture = ExtResource("3_pf2ug")
 
 [node name="CarHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-71.5, 117)
+position = Vector2(-1, 118)
 shape = SubResource("RectangleShape2D_pf2ug")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

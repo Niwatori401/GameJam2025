@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cism1mlieqdnv" path="res://script/enemy_bullet_1.gd" id="1_phj22"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_phj22"]
-radius = 8.0
+radius = 4.0
 
 [node name="EnemyBullet_1" type="RigidBody2D"]
 collision_layer = 4
@@ -15,12 +15,13 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_phj22")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.513726, 0, 1, 1)
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 3.57628e-07)
+scale = Vector2(0.851562, 0.851562)
 texture = ExtResource("1_g1oax")
+offset = Vector2(-10.885, -0.8)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 1)
 shape = SubResource("CircleShape2D_phj22")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

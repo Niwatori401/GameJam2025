@@ -32,14 +32,13 @@ const INITIAL_DELAY_SECONDS : float = 1;
 var current_delay_seconds : float = INITIAL_DELAY_SECONDS + 1; # add small delay between invincible moving onto screen and shooting start
 
 var map_entry_pos = Vector2(randf_range(215, 512), randf_range(250, 820));
-
+var current_random_delay = randf_range(0, 1);
 
 func _ready() -> void:
 	SignalBus.player_died.connect(handle_player_death);
 	$Hitbox.set_deferred("disabled", true);
 	var initial_pos = Vector2(randf_range(-512, -200), randf_range(250, 820));
 	Utility.teleport_characterbody2d(self, initial_pos);
-	
 
 
 var total_delta : float = 0;
@@ -55,7 +54,7 @@ func _process(delta: float) -> void:
 	if current_delay_seconds >= 0:
 		approach_starting_position(delta);
 		current_delay_seconds -= delta;
-		if current_delay_seconds <= 0:
+		if current_delay_seconds - 0.5 <= 0:
 			$Hitbox.set_deferred("disabled", false);
 		
 		return;
@@ -64,8 +63,9 @@ func _process(delta: float) -> void:
 	current_shoot_delay_seconds += delta;
 	
 	
-	if current_shoot_delay_seconds >= SHOOT_DELAY_SECONDS:
+	if current_shoot_delay_seconds >= SHOOT_DELAY_SECONDS + current_random_delay:
 		current_shoot_delay_seconds -= SHOOT_DELAY_SECONDS;
+		current_random_delay = randf_range(-0.3, 1);
 		shoot();
 	
 	move_and_collide(delta * get_movement_vector());
@@ -76,7 +76,9 @@ func approach_starting_position(delta):
 	Utility.teleport_characterbody2d(self, target_location);
 
 
-
+func rotate_bullet_toward_target(target : Vector2, bullet_instance):
+	var rotation_target = atan2(target.x, -target.y) + PI/2; #wow
+	bullet_instance.rotate_sprite_to(rotation_target);
 
 
 func get_movement_vector() -> Vector2:
@@ -94,6 +96,8 @@ func get_player_direction_vector() -> Vector2:
 
 func _on_hit(damage : float):
 	current_health -= damage;
+	$OuchSFX.pitch_scale = randf_range(0.6, 1.4);
+	$OuchSFX.play();
 	if current_health <= 0:
 		die();
 		
@@ -105,9 +109,13 @@ func shoot() -> void:
 	# Adding as child of car causes bullets to "vibrate"
 	get_parent().add_child(bullet_instance);
 	const DESPAWN_SECONDS = 5.0;
-	get_tree().create_timer(DESPAWN_SECONDS).timeout.connect(Utility.despawn_instance.bind(bullet_instance))
-	var velocity_vector = (get_player_direction_vector()).normalized() * BULLET_SPEED;
+	get_tree().create_timer(DESPAWN_SECONDS).timeout.connect(Utility.despawn_instance.bind(bullet_instance));
+	var player_direction_unit_vector = get_player_direction_vector().normalized();
+	rotate_bullet_toward_target(player_direction_unit_vector, bullet_instance);
+	var velocity_vector = (player_direction_unit_vector * BULLET_SPEED);
 	Utility.teleport(bullet_instance, $BulletSpawnPoint.global_position, -velocity_vector);
+	$BulletSFX.pitch_scale = randf_range(0.9, 1.1);
+	$BulletSFX.play();
 
 
 func update_sprite():
@@ -121,6 +129,7 @@ func update_sprite():
 	$CarSprite.texture = graphic_list[len(graphic_list) - 1];
 
 func die():
+	$VehicleExplosionSFX.play();
 	should_fall_behind = true;
 	$Hitbox.set_deferred("disabled", true);
 	get_tree().create_timer(3.0).timeout.connect(func(): queue_free());

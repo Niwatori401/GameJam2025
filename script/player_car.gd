@@ -29,7 +29,7 @@ var min_health_for_graphic = [
 
 func _ready() -> void:
 	SignalBus.hit_player.connect(_on_hit);
-	
+	$AudioListener2D.make_current();
 
 func _process(delta: float) -> void:
 	var movement_direction = Utility.get_move_direction_from_inputs()
@@ -48,9 +48,12 @@ func fire_bullets_if_firing(aim_direction : Vector2):
 	if !Input.is_action_just_pressed("fire_weapon"):
 		return;
 	
+	var bullet_instance = BULLET.instantiate();
+
+
 	var aim_unit_vector;
+	const DIAGONAL_ANGLE_OFFSET_MAGNITUDE = deg_to_rad(30);
 	if aim_direction.x != 0:
-		const DIAGONAL_ANGLE_OFFSET_MAGNITUDE = deg_to_rad(30);
 		aim_unit_vector = Vector2(cos(DIAGONAL_ANGLE_OFFSET_MAGNITUDE) * aim_direction.x, sin(DIAGONAL_ANGLE_OFFSET_MAGNITUDE) * aim_direction.y);
 	elif aim_direction.x == 0 and aim_direction.y == 0:
 		aim_unit_vector = Vector2(-1, 0);
@@ -59,7 +62,15 @@ func fire_bullets_if_firing(aim_direction : Vector2):
 
 	aim_unit_vector = aim_unit_vector.normalized();
 	
-	var bullet_instance = BULLET.instantiate();
+	var sprite_angle = DIAGONAL_ANGLE_OFFSET_MAGNITUDE * -aim_direction.y * -aim_direction.x;
+	if aim_direction.x == 1:
+		sprite_angle += PI;
+	elif aim_direction.x == 0:
+		sprite_angle += PI / 2 * -aim_direction.y;
+	
+	bullet_instance.rotate_sprite_to(sprite_angle);
+
+	
 	# This could cause issues if there is not parent, but in practice that shouldn't happen.
 	# Adding as child of car causes bullets to "vibrate"
 	get_parent().add_child(bullet_instance);

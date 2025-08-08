@@ -41,7 +41,6 @@ texture = ExtResource("3_3gdru")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MrMouse/BagCollisionHitbox"]
 rotation = -0.31765
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/BagCollisionHitbox/StaticBody2D"]
 position = Vector2(-179.72, -65.402)
@@ -49,7 +48,6 @@ shape = SubResource("RectangleShape2D_ag4x2")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="MrMouse/BagCollisionHitbox"]
 rotation = 0.31765
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MrMouse/BagCollisionHitbox/StaticBody2D2"]
 position = Vector2(-50.9751, 6.74671)
